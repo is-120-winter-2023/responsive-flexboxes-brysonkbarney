@@ -58,6 +58,17 @@ select {
   font: inherit;
 }
 
+header {
+  margin-bottom: var(--gap);
+}
+
+header ul {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
 /* until you get a feel for overflow, I'll keep these next two commented out */
 /* p,
 h1,
@@ -75,6 +86,15 @@ h6 {
 } */
 
 /* temp CSS for HTML only assignments */
+.panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel .image-wrapper {
+  order: -1;
+}
+
 picture img {
   width: 100%;
 }
@@ -220,6 +240,10 @@ footer p {
   visibility: hidden;
 } */
 
+a:link {
+  text-decoration: none;
+}
+
 .hero picture {
   height: 100%;
 }
@@ -244,12 +268,11 @@ footer p {
   position: absolute;
   color: #fff;
   /* interim positioning until we convert this to flexbox */
-  inset: auto 1rem 30vh 1rem;
+  inset: 0;
   text-align: center;
-  padding-bottom: 390px;
-  padding-right: 700px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .hero h1 {
@@ -258,6 +281,7 @@ footer p {
   font-weight: 600;
   margin-bottom: 0.5rem;
   text-shadow: 1px 1px 2px #000;
+  margin-top: 0;
 }
 
 .hero p {
@@ -308,4 +332,24 @@ footer p {
   overflow: hidden;
   padding: 0;
   position: absolute;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 500px) {
+  .panel {
+    flex-direction: row;
+  }
+
+  .panel h2 {
+    margin: 0;
+  }
+
+  .panel .text-wrapper {
+    flex: 1 1 40%;
+  }
+
+  .panel .image-wrapper {
+    order: 0;
+    flex: 1 1 60%;
+  }
 }
