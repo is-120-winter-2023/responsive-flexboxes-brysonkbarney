@@ -1,0 +1,305 @@
+/*****************************************************/
+/* This semester we will be using my variation of    */
+/* Josh Comeau's CSS Reset instead of normalize      */
+/* Read more at                                      */
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+/*****************************************************/
+/* Always add your CSS below the reset CSS           */
+/*****************************************************/
+:root {
+  --color-font: #ffffff;
+  --color-primary: #111115; /* black */
+  --color-secondary: #66666e; /* gray */
+  --color-accent: #e6e6e9; /* light gray */
+  --color-accent-light: #dd1c1c; /* red */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  /* this an experimental line-height; if it breaks, add line-height: 1.5 to body */
+  line-height: calc(1em + 0.5rem);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  background-color: black;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* until you get a feel for overflow, I'll keep these next two commented out */
+/* p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+} */
+
+/* p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+} */
+
+/* temp CSS for HTML only assignments */
+picture img {
+  width: 100%;
+}
+
+svg {
+  width: 200px;
+}
+
+/* temp fix to size about img */
+img[srcset] {
+  width: 50%;
+  height: auto;
+  margin: 2rem auto;
+}
+
+/* temporary fix to size svg images */
+img[src$="svg"] {
+  width: 200px;
+}
+
+/************ add your CSS here *****************/
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+  color: var(--color-font);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+  color: var(--color-font);
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+}
+
+a {
+  color: var(--color-secondary);
+}
+
+a[href]:hover {
+  color: var(--color-accent-light);
+}
+
+main {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 50rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+article,
+aside {
+  margin-bottom: 6rem;
+}
+
+footer {
+  padding: 0 1rem;
+  background-color: var(--color-secondary);
+  display: block;
+}
+footer p {
+  color: var(--color-primary);
+  margin: 0;
+  padding: 3rem 1rem 6rem;
+}
+
+.button {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding: 15px 30px;
+  margin: 0 1rem 1rem;
+  border: 2px solid #fcfcfc;
+  text-decoration: none;
+  transition: color 1s cubic-bezier(0.25, 1, 0.25, 1),
+    background-color 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.button h2 a {
+  color: #fcfbfb;
+}
+
+.button span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  display: inline-block;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  transition: color 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button:hover span {
+  position: relative;
+  z-index: 1;
+  color: #000000;
+}
+
+/* converted an empty <div class="hover"> to a psuedo-element. Original used scale3D(1,0,1) to force the animation on the graphics card */
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #ffffff;
+  transform-origin: top center;
+  transform: scaleY(0);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button:hover::before {
+  transform: scaleY(1);
+  transform-origin: bottom center;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+}
+
+/* uncomment this declaration to see the gradient overlay */
+/* .hero img {
+  visibility: hidden;
+} */
+
+.hero picture {
+  height: 100%;
+}
+
+.hero img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0%) 40%,
+    rgb(0 0 0 / 60%)
+  );
+}
+
+.hero .text-wrapper {
+  position: absolute;
+  color: #fff;
+  /* interim positioning until we convert this to flexbox */
+  inset: auto 1rem 30vh 1rem;
+  text-align: center;
+  padding-bottom: 390px;
+  padding-right: 700px;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(2rem, 9vw + 2rem, 9rem);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.hero p {
+  font-size: 1.5rem;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  gap: 1rem;
+  margin: 5rem;
+}
+
+.card {
+  flex: 1 1 0;
+  position: relative;
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.card:hover p {
+  color: transparent;
+  background-color: rgb(0 0 0 / 0%);
+}
+
+.card p {
+  position: absolute;
+  inset: 0;
+  padding: 30%;
+  margin: 0;
+  line-height: 1;
+  background-color: rgb(0 0 0 / 60%);
+  transition: background-color 400ms ease-in-out;
+}
+
+.card img {
+  border-radius: 50%;
+}
+
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
