@@ -291,6 +291,7 @@ a:link {
 /* Cards */
 .cards {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
   margin: 5rem;
 }
@@ -310,11 +311,14 @@ a:link {
 }
 
 .card p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   inset: 0;
-  padding: 30%;
   margin: 0;
   line-height: 1;
+  padding: 0 1rem;
   background-color: rgb(0 0 0 / 60%);
   transition: background-color 400ms ease-in-out;
 }
@@ -338,6 +342,7 @@ a:link {
 @media (min-width: 500px) {
   .panel {
     flex-direction: row;
+    gap: 1rem;
   }
 
   .panel h2 {
@@ -351,5 +356,24 @@ a:link {
   .panel .image-wrapper {
     order: 0;
     flex: 1 1 60%;
+  }
+
+  .panel .left {
+    order: -1;
+  }
+
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1 1 40%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .cards {
+    flex-wrap: nowrap;
   }
 }
