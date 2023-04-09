@@ -269,11 +269,89 @@ footer p {
 /* .hero img {
   visibility: hidden;
 } */
+.menu-icon {
+  background-color: black;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 1.5rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.menu-icon line {
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  transform-origin: center;
+  transition: transform 300ms ease;
+}
+
+.menu-icon line:first-child {
+  transform: translateY(16%);
+}
+
+.menu-icon line:last-child {
+  transform: translateY(-16%);
+}
+
+/* JavaScript toggles a "close" class on the <nav> when the menu-icon is clicked */
+.close nav {
+  display: block;
+}
+
+.close line:first-child {
+  transform: rotate(135deg);
+}
+
+.close line:last-child {
+  transform: rotate(-135deg);
+}
+
+/* @media (min-width: 600px) {
+  .menu-icon {
+    display: none;
+  } */
 
 a:link {
   text-decoration: none;
 }
 
+nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: #000000;
+  padding: 6rem 2rem 0;
+}
+
+/* basic <ul> menu setup */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li:last-child {
+  border: none;
+}
+
+nav li a {
+  display: inline-block;
+  padding: 1em;
+  font-size: 1.25rem;
+  font-weight: 200;
+  color: #fff;
+}
+
+nav li a:hover {
+  text-decoration: underline;
+}
 /* .hero picture {
   height: 100%;
 }
