@@ -87,6 +87,7 @@ h6 {
 .panel {
   display: flex;
   flex-direction: column;
+  margin-top: 5rem;
 }
 
 .panel .image-wrapper {
@@ -168,11 +169,11 @@ aside {
 
 footer {
   padding: 0 1rem;
-  background-color: var(--color-secondary);
+  background-color: black;
   display: block;
 }
 footer p {
-  color: var(--color-primary);
+  color: gray;
   margin: 0;
   padding: 3rem 1rem 6rem;
 }

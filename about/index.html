@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-  <!-- TODO: adjust title, add meta description, add your favicon info, delete this comment  -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,30 +15,33 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/rocket.css">
 
-  <title>Space - About</title>
+  <title>Space - Rocket Launch</title>
 </head>
 
 <body>
-  <!-- TODO: add menu links, delete this comment -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="../">Home</a></li>
-        <li><a>About</a></li>
-        <li><a href="../contact/">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <h1>About</h1>
-  </main>
-  <img srcset="../images/rocket-300px.jpg 300w,
-  ../images/rocket-600px.jpg 600w,
-  ../images/rocket-900px.jpg 900w" sizes="50vw" src="../images/rocket-600px.jpg"
-    alt="a rocket taking preparing for take off" width="600" height="914">
+  <div class="launch" title="Click me !">Launch !</div>
+
+  <img class="rocket" alt="rocket" src="https://res.cloudinary.com/beumsk/image/upload/v1506066389/Spaceship.png">
+  <script>
+
+    var launch = document.getElementsByClassName("launch"),
+      rocket = document.getElementsByClassName("rocket"),
+      footer = document.getElementsByTagName("footer");
+
+    launch[0].addEventListener("click", function () {
+      launch[0].style.display = "none";
+      rocket[0].style.animation = "fire 20s";
+      footer[0].style.opacity = 1;
+      setTimeout(function () {
+        rocket[0].style.animation = "";
+        launch[0].style.display = "block";
+        footer[0].style.opacity = 0;
+      }, 20000)
+    });
+  </script>
 </body>
 
 </html>
